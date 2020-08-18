@@ -15,5 +15,27 @@ class Store < ActiveRecord::Base
       errors.add(:apparel, "Cant be blank (Store policy requires Men/Women's Apparel)")
     end
   end
+
+
+  puts :employees
+  before_destroy :restrict_destroy
+
+
+  private
+
+  def get_employees
+    puts "Checking No. of Employees: #{Employee.where(store: self.id).count}"
+    Employee.where(store: self.id).count
+  end
+
+
+  def restrict_destroy
+    if get_employees > 0
+      return false
+    end
+    return true
+  end
+
+    
   
 end

@@ -9,6 +9,7 @@ require_relative './exercise_7'
 
 puts "Exercise 8"
 puts "----------"
+## Before an employee is created, AR should automatically create a random (8 character string) password.
 
 @store2.employees.create(first_name: "Lorelei", last_name: "Gaines", hourly_rate: 67)
 

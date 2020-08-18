@@ -6,7 +6,7 @@ class Employee < ActiveRecord::Base
 
   before_create :create_password
 
-  ## Enable an auto-generated password (string) when employees are added  in the database.
+  ## Enable an auto-generated password (string) when employees are added in the database.
   private
     def create_password
       self.password = (0...8).map { (65 + rand(26)).chr}.join
